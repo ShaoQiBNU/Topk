@@ -147,9 +147,9 @@ def qsort(num,left,right):
 			#### 交换 ####
 			num[i],num[j]=num[j],num[i]
 
-	'''
-	此时数组被分割成两个部分  
-	-->  array[left] ~ array[i-1] < array[left]
+    '''
+    此时数组被分割成两个部分  
+    -->  array[left] ~ array[i-1] < array[left]
     -->  array[i+1] ~ array[right] > array[left]
     进行两个分割部分的排序：
     如果数组长度大于1，则排序；
