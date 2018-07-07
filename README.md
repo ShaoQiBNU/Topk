@@ -216,9 +216,10 @@ def topk_qsort(num,left,right,k):
 			#### 交换 ####
 			num[i],num[j]=num[j],num[i]
 	print(num)
-	'''
-	此时数组被分割成两个部分  
-	-->  array[left] ~ array[i-1] < array[left]
+
+   '''
+    此时数组被分割成两个部分  
+    -->  array[left] ~ array[i-1] < array[left]
     -->  array[i+1] ~ array[right] > array[left]
     
     i与k比较，如果不等，则划分位置不是k，继续处理
