@@ -17,28 +17,36 @@ TopK的问题的解决办法
 
 ### 1. 堆的概念及排序应用
 
-> 堆（heap），是一种特殊的数据结构。之所以特殊，因为堆的形象化是一个棵完全二叉树，并且满足任意节点始终不大于（或者不小于）左右子节点（有别于二叉搜索树Binary Search Tree）。其中，前者称为小顶堆（最小堆，堆顶为最小值），如图1所示，后者为大顶堆（最大堆，堆顶为最大值），如图2所示。
+> 堆（heap），是一种特殊的数据结构。之所以特殊，因为堆的形象化是一个棵完全二叉树，并且满足任意节点始终不小于（或者不大于）左右子节点（有别于二叉搜索树Binary Search Tree）。其中，前者称为为大顶堆（最大堆，堆顶为最大值），如图1所示，后者小顶堆（最小堆，堆顶为最小值），如图2所示。
 ![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap.jpg)
 
 > 堆可以看成一个二叉树，所以可以考虑使用二叉树的表示方法来表示堆。但是因为堆中元素按照一定的优先顺序排列，因此可以使用更简单的方法——数组——来表示，这样可以节省子节点指针空间，并且可以快速访问每个节点。堆的数组表示其实就是堆层级遍历的结果，如下图所示：这样对于每一个下标为i的节点，其左子节点在下标为2 x i的位置，其右子节点在下标为2 x i+1的位置，而其父节点在下标为 floor{i/2}，最后一个非叶节点的下标为n/2，其中i从1开始，n为数组长度。通过数组的存储方式，可以通过计算下标，直接获取到相关节点。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_save.PNG)
 
 > 堆排序过程说明。给定一个整形数组a=[-1,5,2,6,0,3,9,1,7,4]，-1为占位符，不参与排序，对其进行升序堆排序。
 
 > (1)构造初始堆
 > 首先，根据数组构建一个完全二叉树，如图所示，然后从最后一个非叶节点开始调整，i=n/2=4，即a[4]=0，开始调整，调整过程为：寻找该节点的左右孩子中的最大值，最大值为7，如果最大的孩子大于该节点，则二者交换，将7和0交换。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_1.png)
 
 > 寻找下一个非叶节点开始调整，i=i-1=3，即a[3]=6，开始调整，9和6交换。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_2.png)
 
 > 寻找下一个非叶节点开始调整，i=i-1=2，即a[2]=2，开始调整，2和7交换，交换之后发现2不满足堆的性质，继续调整，4和2交换。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_3.png)
 
 > 继续寻找下一个非叶节点开始调整，i=i-1=1，即a[1]=5，开始调整，5和9交换，交换之后发现5不满足堆的性质，继续调整，5和6交换。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_4.png)
 
 > (2)排序
 > 经过(1)的过程后，此时a[1]为最大值，将其与a[n]交换位置，然后对剩下的a[1]~a[n-1]再次进行堆排序。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_5.png)
 
 > 此时最大值位于a[1]位置，将其与a[n-1]交换位置。然后对剩下的a[1]~a[n-2]再次进行堆排序。
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_6.png)
 
 > 重复上述过程，直至最后
+![image](https://github.com/ShaoQiBNU/Topk/blob/master/image/heap_7.png)
 
 > 代码如下
 
