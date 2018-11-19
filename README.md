@@ -294,7 +294,7 @@ def topk_heapsort(num,n,k):
 	buildheap(num_k,k)
 
 	##### 遍历num的k+1~n个元素 #####
-	for i in range(k+1,n):
+	for i in range(k,n):
 
 		##### 与大根堆的堆顶元素比较#####
 		if num[i]<num_k[1]:
@@ -390,7 +390,7 @@ def topk_heapsort(num,n,k):
 	buildheap(num_k,k)
 
 	##### 遍历num的k+1~n个元素 #####
-	for i in range(k+1,n):
+	for i in range(k,n):
 
 		##### 与小根堆的堆顶元素比较如果num[i]>num_k[1]，则替换num_k[1]，然后对小根堆做调整 #####
 		if num[i]>num_k[1]:
