@@ -59,7 +59,7 @@ def topk_heapsort(num,n,k):
 	buildheap(num_k,k)
 
 	##### 遍历num的k+1~n个元素 #####
-	for i in range(k+1,n):
+	for i in range(k,n):
 
 		##### 与大根堆的堆顶元素比较#####
 		if num[i]<num_k[1]:
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 	########## 列表 ###########
 	num=[111,56,3,6,21,32,4,43,43,98,32,43,54,32,45,23,4,66,86,21]
 	k=6
-	n=len(num)-1
+	n=len(num)
 
 	########## print before sort ###########
 	print(num)
