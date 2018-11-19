@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
 	########## 列表 ###########
 	num=[-1,5,2,6,0,3,9,1,7,4]
-	n=len(num)
+	n=len(num)-1
 
 	########## print before sort ###########
 	print(num)
