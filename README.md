@@ -659,3 +659,6 @@ if __name__ == '__main__':
 	########## print after sort ###########
 	print(num)
 ```
+
+# 扩展
+N个有序数组，找到最大的K个数TOP K：https://blog.csdn.net/qq_33166535/article/details/77747879
